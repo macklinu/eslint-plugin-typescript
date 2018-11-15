@@ -15,7 +15,6 @@
     "lint:fix": "eslint lib/ tests/ --fix",
     "docs": "eslint-docs",
     "docs:check": "eslint-docs check",
-    "format": "prettier --write --tab-width 4 lib/**/*.js tests/**/*.js",
     "mocha": "mocha tests --recursive --reporter=dot",
     "test": "npm run lint && npm run mocha && npm run docs:check",
     "precommit": "npm test && lint-staged"
@@ -33,13 +32,17 @@
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "mocha": "^4.0.1",
-    "prettier": "^1.11.1",
+    "prettier": "^1.15.2",
     "typescript": "~2.8.1",
     "typescript-eslint-parser": "^15.0.0"
   },
   "lint-staged": {
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ],
     "*.js": [
-      "prettier --write --tab-width 4",
+      "eslint --fix",
       "git add"
     ]
   },

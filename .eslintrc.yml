@@ -8,8 +8,5 @@ extends:
     - "plugin:node/recommended"
     - "prettier"
 rules:
-    prettier/prettier:
-    - error
-    - tabWidth: 4
+    prettier/prettier: error
     lines-around-comment: off
-
